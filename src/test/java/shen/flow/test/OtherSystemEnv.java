@@ -1,7 +1,9 @@
 package shen.flow.test;
 
 import shen.flow.model.FlowInfo;
-import shen.flow.process.helper.ProcessCreateHelper;
+import shen.flow.process.impl.ProcessCreator;
+import shen.flow.process.service.ProcessService;
+import shen.flow.process.service.impl.ProcessServiceImpl;
 
 /**
  * <pre>
@@ -17,8 +19,15 @@ import shen.flow.process.helper.ProcessCreateHelper;
 public class OtherSystemEnv {
 
     public static void main(String[] args) {
-        final ProcessCreateHelper process = new ProcessCreateHelper(new TestA1Process());
-        process.create(new FlowInfo());
+        final ProcessCreator process = new ProcessCreator();
+        
+        // Test new process.
+        final FlowInfo flowInfo = new FlowInfo();
+        process.newProcess(new TestA1Process(), flowInfo);
+        
+        // Test accept.
+        final ProcessService service = new ProcessServiceImpl();
+        service.accept("1");
     }
 
 }

@@ -1,8 +1,12 @@
 package shen.flow.dictionary;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <pre>
- * Class說明。
+ * Processing status.
  * </pre>
  *
  * @since 2018年3月18日
@@ -43,6 +47,28 @@ public enum ProcessingStatusEnum {
 
     public String getName() {
         return name;
+    }
+
+    private final static Map<String, ProcessingStatusEnum> ITEM_MAP;
+    static {
+        final Map<String, ProcessingStatusEnum> map = new HashMap<>();
+        for (ProcessingStatusEnum type : ProcessingStatusEnum.values()) {
+            map.put(type.getCode(), type);
+        }
+
+        ITEM_MAP = Collections.unmodifiableMap(map);
+    }
+
+    /**
+     * Lookup name.
+     * @param code Type code.
+     */
+    public static String lookupName(final String code) {
+        if (ITEM_MAP.containsKey(code)) {
+            return ITEM_MAP.get(code).getName();
+        } else {
+            return "";
+        }
     }
 
 }

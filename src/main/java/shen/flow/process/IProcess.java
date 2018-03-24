@@ -4,7 +4,7 @@ import shen.flow.model.FlowInfo;
 
 /**
  * <pre>
- * Class說明。
+ * Process interface.
  * </pre>
  *
  * @since 2018年3月18日

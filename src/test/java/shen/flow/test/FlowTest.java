@@ -1,7 +1,6 @@
 package shen.flow.test;
 
 import junit.framework.TestCase;
-import shen.flow.process.impl.ProcessHandler;
 
 /**
  * <pre>
@@ -14,9 +13,6 @@ import shen.flow.process.impl.ProcessHandler;
  *            <li>2018年3月18日,Unicorn,new
  *          </ul>
  */
-public class FlowTest extends TestCase{
+public class FlowTest extends TestCase {
 
-    public void test() {
-        ProcessHandler.create();
-    }
 }

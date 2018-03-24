@@ -13,7 +13,7 @@ import shen.flow.model.FlowInfo;
  *            <li>2018年3月19日,Unicorn,new
  *          </ul>
  */
-public interface CommonProcessService {
+public interface ProcessService {
 
     /**
      * 申請(建立新流程).
