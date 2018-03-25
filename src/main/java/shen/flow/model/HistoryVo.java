@@ -2,7 +2,7 @@ package shen.flow.model;
 
 /**
  * <pre>
- * Class說明。
+ * 歷史檔.
  * </pre>
  *
  * @since 2018年3月19日

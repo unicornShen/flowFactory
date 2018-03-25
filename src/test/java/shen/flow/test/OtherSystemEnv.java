@@ -1,9 +1,11 @@
 package shen.flow.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import shen.flow.model.FlowInfo;
-import shen.flow.process.impl.ProcessCreator;
-import shen.flow.process.service.ProcessService;
-import shen.flow.process.service.impl.ProcessServiceImpl;
+import shen.flow.model.HistoryVo;
+import shen.flow.process.impl.ProcessHandler;
 
 /**
  * <pre>
@@ -19,15 +21,18 @@ import shen.flow.process.service.impl.ProcessServiceImpl;
 public class OtherSystemEnv {
 
     public static void main(String[] args) {
-        final ProcessCreator process = new ProcessCreator();
-        
+
         // Test new process.
         final FlowInfo flowInfo = new FlowInfo();
-        process.newProcess(new TestA1Process(), flowInfo);
+        flowInfo.setClassName(TestA1Process.class.getName());
         
+        final List<HistoryVo> hsList = new ArrayList<>();
+        
+        final ProcessHandler process = new ProcessHandler();
+        process.newProcess(flowInfo, hsList);
+
         // Test accept.
-        final ProcessService service = new ProcessServiceImpl();
-        service.accept("1");
+        process.accept("1");
     }
 
 }
